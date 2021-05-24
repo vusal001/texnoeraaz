@@ -1,0 +1,697 @@
+{% load static %}
+
+<html lang="az">
+
+<head>
+    <link rel="stylesheet" href="{% static 'square1.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}">
+    <link rel="icon" href="{% static 'icon2.png' %}">
+    <title>{% block title %}Texnoera - İT və Dizayn platforması{% endblock %}</title>
+</head>
+
+
+<body>
+    <style>
+        .about ul {
+            display: none;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #256194, #0c3f6a);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        /* .sidenav a {
+                        padding: 10px 8px 8px 32px;
+                        text-decoration: none;
+                        font-size: 20px;
+                        color: #ffffff;
+                        display: block;
+                        transition: 0.3s;
+                        } */
+        
+        .sidenav li {
+            padding: 10px 12px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            padding-right: 52px;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        @media screen and (max-height: 720px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+        }
+        
+        .sidenav ul {
+            list-style: none;
+        }
+        
+        .main_ul {
+            margin-top: 40px;
+        }
+        
+        .main_ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .about ul li {
+            width: 230px;
+            font-size: 17px;
+        }
+        
+        .subabout ul a {
+            font-size: 15px;
+        }
+    </style>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul class="main_ul">
+
+            <li><a href="{% url 'home' %}">Xəbərlər</a>
+
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+            </li>
+
+
+            <li class="about" id="about1">
+                <div class="about1btn">Təhsil<img src="{% static 'down2.png' %}" style="width: 20px;
+                        height: 20px;
+                        float: right;
+                        margin-top: 7px;
+                        margin-right: 8px;"></div>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+
+                <ul>
+                    <li class="subabout" id="subabout1">
+                        <div class="subabout1btn">Universitetlər</div>
+
+                        <ul>
+                            <li><a href="{% url 'uni_ixtisaslar' %}">İxtisaslar</a> </li>
+                            <li><a href="{% url 'universitetler' %}">Universitetlər</a> </li>
+                        </ul>
+
+                    </li>
+                    <li class="subabout" id="subabout2">
+                        <div class="subabout2btn">Kolleclər</div>
+                        <ul>
+                            <li><a href="{% url 'kollec_ixtisaslar' %}">İxtisaslar</a></li>
+                            <li><a href="{% url 'kollecler' %}">Kolleclər</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'xaricdetehsil' %}">Xaricdə təhsil</a></li>
+                    <li><a href="{% url 'teqaudprogramlari' %}">Təqaüd proqramı</a></li>
+
+                </ul>
+            </li>
+            <li class="about" id="about2">
+                <div class="about2btn">Məlumat bloku <img src="{% static 'down2.png' %}" style="    width: 20px;
+                        height: 20px;
+                        float: right;
+                        margin-top: 7px;
+                        margin-right: 8px"></div>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+                <ul>
+                    <li class="subabout" id="subabout3">
+                        <div class="subabout3btn">Web developing</div>
+
+                        <ul>
+                            <li><a href="{% url 'front' %}">Front-end</a> </li>
+                            <li><a href="{% url 'back' %}">Back-end</a> </li>
+                            <li><a href="{% url 'back' %}">Full-stack</a> </li>
+                        </ul>
+
+                    </li>
+                    <li class="subabout" id="subabout4">
+                        <div class="subabout4btn">Mobile developing</div>
+                        <ul>
+                            <li><a href="{% url 'android' %}">Android</a></li>
+                            <li><a href="{% url 'ios' %}">IOS</a></li>
+                            <li><a href="{% url 'cross' %}">Cross</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a href="{% url 'devops' %}">DevOps</a></li>
+                    <li><a href="{% url 'dataanaliz' %}">Data Analiz</a></li>
+                    <li><a href="{% url 'uxui' %}">UX/UI</a></li>
+                    <li><a href="{% url 'qrafik' %}">Qrafik dizayn</a></li>
+                    <li><a href="{% url 'suni' %}">Süni İntellekt</a></li>
+                    <li><a href="{% url 'sistem' %}">Sistem administratoru</a></li>
+
+
+                </ul>
+            </li>
+
+            <li class="about" id="about3">
+                <div class="about3btn">İş elanları<img src="{% static 'down2.png' %}" style="    width: 20px;
+                        height: 20px;
+                        float: right;
+                        margin-top: 7px;
+                        margin-right: 8px"></div>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+                <ul>
+
+                    <li><a href="{% url 'vakansiylar' %}">Vakansiyalar</a> </li>
+
+                    <li><a href="{% url 'tecrubeprogramlari' %}">Təcrübə proqramları</a></li>
+
+
+                </ul>
+            </li>
+
+            <li class="about" id="about4">
+                <div class="about4btn">Tədbirlər<img src="{% static 'down2.png' %}" style="    width: 20px;
+                        height: 20px;
+                        float: right;
+                        margin-top: 7px;
+                        margin-right: 8px"></div>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+                <ul>
+
+                    <li><a href="{% url 'tedbirler' %}">Tədbirlər</a> </li>
+
+                    <li><a href="{% url 'telimler' %}">Təlimlər</a> </li>
+
+
+                </ul>
+            </li>
+            <li><a href="{% url 'onlinekitabxana' %}">Online kitabxana</a>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+            </li>
+            <li> <a href="{% url 'temir' %}">KURS</a>
+                <hr style="margin: 0; padding: 0; color: #ffffff;">
+            </li>
+
+
+        </ul>
+
+        <div class="yanmenu_sosials">
+            <div class="footer_socials" style="justify-content: center;">
+                <ul class="list-inline list-social">
+                    <li>
+                        <a href="https://wa.me/994556579881" class="social-icon social-icon-whatsapp" target="_blank">
+                            <i class="fa fa-whatsapp"></i>
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/texnoera" class="social-icon social-icon-facebook" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/texnoera" class="social-icon social-icon-instagram" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/texnoera1" class="social-icon social-icon-telegram" target="_blank">
+                            <i class="fa fa-telegram"></i>
+                            <i class="fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/texnoera" class="social-icon social-icon-linkedin" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            $('.about1btn').click(function() {
+                $('#about1').children("ul").slideToggle();
+                $('.about ul').not('#about1 ul').css('display', 'none');
+                $('.about div img').not('#about1 div img').removeClass('cevir');
+                $(this).children('img').toggleClass('cevir');
+
+            });
+            $('.about2btn').click(function() {
+                $('#about2').children("ul").slideToggle();
+                $('.about ul').not('#about2 ul').css('display', 'none');
+                $('.about div img').not('#about2 div img').removeClass('cevir');
+                $(this).children('img').toggleClass('cevir');
+
+            });
+
+            $('.about3btn').click(function() {
+                $('#about3').children("ul").slideToggle();
+                $('.about ul').not('#about3 ul').css('display', 'none');
+                $('.about div img').not('#about3 div img').removeClass('cevir');
+                $(this).children('img').toggleClass('cevir');
+
+            });
+            $('.about4btn').click(function() {
+                $('#about4').children("ul").slideToggle();
+                $('.about ul').not('#about4 ul').css('display', 'none');
+                $('.about div img').not('#about4 div img').removeClass('cevir');
+                $(this).children('img').toggleClass('cevir');
+
+            });
+
+
+            $('.subabout1btn').click(function() {
+                $('#subabout1').children("ul").slideToggle();
+                $('.subabout ul').not('#subabout1 ul').css('display', 'none');
+
+
+            });
+
+
+            $('.subabout2btn').click(function() {
+                $('#subabout2').children("ul").slideToggle();
+                $('.subabout ul').not('#subabout2 ul').css('display', 'none');
+
+
+            });
+
+
+            $('.subabout3btn').click(function() {
+                $('#subabout3').children("ul").slideToggle();
+                $('.subabout ul').not('#subabout3 ul').css('display', 'none');
+
+
+            });
+
+
+            $('.subabout4btn').click(function() {
+                $('#subabout4').children("ul").slideToggle();
+                $('.subabout ul').not('#subabout4 ul').css('display', 'none');
+
+
+            });
+        </script>
+
+
+    </div>
+
+
+    <div class="base">
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+
+
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static  'logo.jpeg' %} " alt="" width="100%" height="100%"></a>
+
+            </div>
+
+            <div class="logo_mob">
+                <a href="{% url 'home' %}"><img src="{% static  'logo_ag.png' %} " alt="" width="100%" height="100%"></a>
+
+
+            </div>
+
+
+
+            <div class="menu">
+                <div class="mob_search">
+
+                    <img src="{% static 'mobsearch3.png' %}" width="100%" height="100%" alt="">
+                </div>
+
+                <span style="font-size: 25px; cursor:pointer; font-weight: 600; color: white; margin-top: 4.5px;" onclick="openNav()">
+                                                <img src="{% static 'hamburger.png' %}" width="30px" height="30px" alt="">
+                                        </span>
+
+
+
+            </div>
+        </div>
+
+        <div class="sosialsebekeler">
+
+            <div class="sosialikonlar">
+                <ul class="list-inline list-social">
+                    <li>
+                        <a href="https://wa.me/994556579881" class="social-icon social-icon-whatsapp" target="_blank">
+                            <i class="fa fa-whatsapp"></i>
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/texnoera" class="social-icon social-icon-facebook" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/texnoera" class="social-icon social-icon-instagram" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/texnoera1" class="social-icon social-icon-telegram" target="_blank">
+                            <i class="fa fa-telegram"></i>
+                            <i class="fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/texnoera" class="social-icon social-icon-linkedin" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr style="margin: 0;">
+    <div class="search_mob_form">
+        <form action="{% url 'axtar' %}">
+            <input type="search" name="axtaris" id="" style="padding-left:5px;" placeholder="axtarış...">
+            <input type="submit" style="background: #0c3f6a;
+                                border: 0.5px white solid; color:white; letter-spacing: 0.5;" value="Axtar">
+        </form>
+    </div>
+
+
+
+    <header>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "100%";
+                $('body').css("overflow", "hidden");
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                $('body').css("overflow", "auto");
+            }
+        </script>
+
+        <a href="{% url 'home' %}">
+            <div class="web_logo"><img src="{% static 'logo_ag.png' %}" alt="" width="100%" height="100%"></div>
+        </a>
+
+        <div style="display: flex;" class="menu_nav_search">
+
+            <nav>
+                <ul>
+                    <li class="menu_xeber">
+
+                        <a href="{% url 'home' %}" style="color: white;">Xəbərlər</a>
+                    </li>
+
+                    <li class="menu_tehsil">
+
+                        Təhsil
+                        <ul>
+                            <li style="width: 220px;">Universitetlər
+
+                                <ul class="uniler">
+                                    <li>
+                                        <a href="{% url 'universitetler' %}">Universitetlər</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'uni_ixtisaslar' %}">İxtisaslar</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li style="width: 220px;">Kolleclər
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'kollecler' %}">Kolleclər</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'kollec_ixtisaslar' %}">İxtisaslar</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'xaricdetehsil' %}">Xaricdə təhsil</a></li>
+                            <li><a href="{% url 'teqaudprogramlari' %}">Təqaüd proqramı</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="menu_melumat">
+
+                        Məlumat bloku
+                        <ul>
+
+                            <li style="width: 220px;">Web developing
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'front' %}">Front-end</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'back' %}">Back-end</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li style="width: 220px;">Mobil developing
+                                <ul>
+                                    <li style="width: 152px;">
+                                        <a href="{% url 'android' %}">Android</a>
+                                    </li>
+                                    <li style="width: 152px;">
+                                        <a href="{% url 'ios' %}">IOS</a>
+                                    </li>
+                                    <li style="width: 152px;">
+                                        <a href="{% url 'cross' %}">Cross</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li style="width: 152px;"><a href="{% url 'devops' %}">DevOps</a></li>
+                            <li style="width: 152px;"><a href="{% url 'dataanaliz' %}">Data Analiz</a></li>
+                            <li style="width: 152px;"><a href="{% url 'uxui' %}">UX/UI</a></li>
+                            <li><a href="{% url 'qrafik' %}">Qrafik dizayn</a></li>
+                            <li><a href="{% url 'suni' %}">Süni İntellekt</a></li>
+                            <li><a href="{% url 'sistem' %}">Sistem administratoru</a></li>
+
+                        </ul>
+                    </li>
+
+
+
+
+                    <li class="menu_is">
+
+                        İş elanları
+                        <ul>
+                            <li><a href="{% url 'vakansiylar' %}">Vakansiyalar</a></li>
+                            <li><a href="{% url 'tecrubeprogramlari' %}">Təcrübə proqramları</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="menu_tedbir">
+                        Tədbirlər
+                        <ul style="width:130px;">
+                            <li><a href="{% url 'tedbirler' %}">Tədbirlər</a></li>
+                            <li><a href="{% url 'telimler' %}">Təlimlər</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="menu_kitabxana">
+
+                        <a href="{% url 'onlinekitabxana' %}">Online kitabxana</a>
+                    </li>
+
+
+
+                    <li class="menu_kurs">
+
+                        <a href="{% url 'temir' %}">Kurs</a>
+                    </li>
+                </ul>
+
+
+
+            </nav>
+
+            <div class="search_btn" id="search_btn" style="cursor: pointer;">Axtarış</div>
+        </div>
+    </header>
+
+    <div class="search_div" id="search_div">
+        <form action="{% url 'axtar' %}">
+            <div style="display: flex;">
+                <input name="axtaris" type="text" placeholder="Sizə necə kömək edə bilərik?" value="{{ request.GET.axtaris }}">
+                <button type="submit"><img style="transform: scaleX(-1);" src="{% static 'search2.svg' %}" width="100%" height="100%" alt=""></button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+        $(".search_btn").on("click", function() {
+            $(".search_div").slideToggle();
+            $(".search_div form").slideToggle();
+            $('input[name=axtaris]').focus()
+        });
+    </script>
+
+    {% block menu %} {% endblock %}
+
+
+    <footer>
+
+        <div class="footer_part">
+            <div class="footer_logo">
+                <img src="{% static 'logo_ag.png' %}" alt="" width="100%" height="100%">
+            </div>
+            <div class="footer_txt">
+                <p class="text-justify">TexnoEra İKT sahəsi üçün yaradılmış bir platformadır. Bu platforma İKT sahəsində gənclərin bacarıq və biliklərini inkişaf etdirərək, peşəkar formalaşmaları üçün fəaliyyət göstərir.</p>
+            </div>
+        </div>
+        <div class="footer_part footer_part2" style="margin-top: 35px;">
+            <div class="mob_footer_part2">
+                <img src="{% static 'logo_ag.png' %}" alt="" style="width:120px">
+            </div>
+            <div style="text-align: left;  width: 250px; margin-top: 15px;">
+
+
+
+                <div><a href="{% url 'about' %}">Haqqımızda</a></div>
+
+
+                <div><a href="tel:994556579881">+994556579881</a></div>
+                <div><a href="mailto:info@texnoera.az">info@texnoera.az</a></div>
+                <div><a href="https://goo.gl/maps/k5qPqjhD5vqDbNgo7" target="_blank">Bakı şəhəri, Marine Plaza Üzeyir Hacıbəyov küçəsi 62</a></div>
+                <div class="footer_socials">
+                    <ul class="list-inline list-social">
+                        <li>
+                            <a href="https://wa.me/994556579881" class="social-icon social-icon-whatsapp" target="_blank">
+                                <i class="fa fa-whatsapp"></i>
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/texnoera" class="social-icon social-icon-facebook" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/texnoera" class="social-icon social-icon-instagram" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/texnoera1" class="social-icon social-icon-telegram" target="_blank">
+                                <i class="fa fa-telegram"></i>
+                                <i class="fa fa-telegram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/texnoera" class="social-icon social-icon-linkedin" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer_part">
+            <div style="width: 97%; margin: auto; position: relative;">
+                <div class="mail_system_title" style="text-align: center; font-size: 20px; letter-spacing: 0.7px;">Təkliflərinizi göndərin</div>
+                <div>
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mail_mail">
+                            {{ form.ad }}
+                        </div>
+
+                        <div class="mail_text">
+
+                            {{ form.text }}
+
+                        </div>
+                        <input type="submit" value="Göndər">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <div class="col-sm-12 footer-copy">
+        <p class="text-center copyright">© 2021 <a href="https://texnoera.az">Texnoera.az</a> Bütün Hüquqlar Qorunur!</p>
+    </div>
+    {% if request.path == '/' %}
+    <script>
+        $('.menu_xeber').addClass('menu_active');
+    </script>
+    {% endif %} {% if request.path == '/tehsil/universitetler/' or request.path == '/tehsil/kollecler/' or request.path == '/tehsil/universitetler/ixtisaslar/' or request.path == '/tehsil/kollecler/ixtisaslar/' or request.path == '/tehsil/kollecler/ixtisaslar/'
+    or request.path == '/tehsil/xaricdetehsil/' or request.path == '/tehsil/teqaudprogramlari/' %}
+    <script>
+        $('.menu_tehsil').addClass('menu_active');
+    </script>
+    {% endif %} {% if request.path == '/iselanlari/vakansiyalar/' or request.path == '/iselanlari/tecrubeprogramlari/' %}
+    <script>
+        $('.menu_is').addClass('menu_active');
+    </script>
+
+    {% endif %} {% if request.path == '/tedbirler/' or request.path == '/telimler/' %}
+    <script>
+        $('.menu_tedbir').addClass('menu_active');
+    </script>
+
+    {% endif %} {% if request.path == '/onlinekitabxana/' %}
+    <script>
+        $('.menu_kitabxana').addClass('menu_active');
+    </script>
+
+    {% endif %} {% if request.path == '/temir/' %}
+    <script>
+        $('.menu_kurs').addClass('menu_active');
+    </script>
+
+    {% endif %} {% if request.path == '/android/' or request.path == '/ios/' or request.path == '/cross/' or request.path == '/front/' or request.path == '/back/' or request.path == '/fullstack/' or request.path == '/devops/' or request.path == '/dataanaliz/'
+    or request.path == '/uxui/' or request.path == '/qrafikdizayn/' or request.path == '/suni-intellekt/' %}
+    <script>
+        $('.menu_melumat').addClass('menu_active');
+    </script>
+
+    {% endif %}
+
+    <script>
+        $('.mob_search').click(function() {
+            $('.search_mob_form').slideToggle();
+
+        });
+    </script>
+
+</body>
+
+</html>

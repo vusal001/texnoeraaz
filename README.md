@@ -1,0 +1,2 @@
+# texnoera
+# texnoera.az
