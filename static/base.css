@@ -706,9 +706,9 @@ header nav ul li ul li {
     position: relative !important;
 }
 
-.image_wrapper.image_loaded{
+.image_wrapper{
     /*background: #B1BBCF !important;*/
-    background-image: linear-gradient(to left, #e1ebff, #d4def2, #c8d2e6, #bbc5d9, #afb9cd) !important;
+    background-image: url("fon.png") !important;
 }
 
 .example a{
@@ -733,9 +733,15 @@ header nav ul li ul li {
     width: 300px;
 }
 
+.example.square1 .slides_container .image_wrapper a{
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .example a .text_content{
     flex: 1;
-    display: block;
+    display: flex;
     justify-content: center;
     left: unset !important;
     bottom: unset !important;
@@ -744,6 +750,9 @@ header nav ul li ul li {
     box-sizing: border-box;
     max-width: 549px;
     font-family: Roboto;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .example2 a .text_content{
